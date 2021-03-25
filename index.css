@@ -1,0 +1,19 @@
+body{
+    background-color: red;
+    margin: 0;
+}
+.pictures{
+    list-style: none;
+    padding: 20px;
+    background-color: seagreen;
+    color: seashell;
+    margin: auto;
+}
+#pokedex{
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 90px));
+    grid-gap: 10px
+    
+}
