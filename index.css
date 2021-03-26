@@ -9,6 +9,10 @@ body{
     color: seashell;
     margin: auto;
 }
+.pokeImage{
+    width: 50px;
+    height: 50px;
+}
 #pokedex{
     padding-inline-start: 20px;
     padding-inline-end: 20px;
@@ -16,4 +20,19 @@ body{
     grid-template-columns: repeat(auto-fit, minmax(20px, 90px));
     grid-gap: 10px
     
+}
+#pokedex div.popup{
+    text-align: center;
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    width: 40%;
+    height: 25%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+    
+}
+.pokeImagePop{
+    width: 150px;
+    height: 150px;
 }
