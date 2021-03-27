@@ -67,23 +67,37 @@ const displayPopup = (pokelist) => {
         <button id="closeButton" onclick="closePopup()"> X </button>
             <div class="pictures">
                 <img class="pokeImagePop" src="${pokelist.sprites.front_default}"/>
-                <h1> ${pokelist.id}. ${pokelist.name}</h1>
+                <h1> ${pokelist.id}. ${pokelist.name.toUpperCase()}</h1>
                 <p>Type: ${type}</p>
                 <p>Stats</p>
-                <p class="hp">${pokelist.stats[0].stat.name}, ${pokelist.stats[0].base_stat} </p>
-                <p class="attack">${pokelist.stats[1].stat.name}, ${pokelist.stats[1].base_stat}</p>
-                <p class="defence">${pokelist.stats[2].stat.name}, ${pokelist.stats[2].base_stat}</p>
-                <p class="SpAttack">${pokelist.stats[3].stat.name}, ${pokelist.stats[3].base_stat}</p>
-                <p class="SpDefence">${pokelist.stats[4].stat.name}, ${pokelist.stats[4].base_stat}</p>
-                <p class="speed">${pokelist.stats[5].stat.name}, ${pokelist.stats[5].base_stat}</p>
+                <div id="stats">
+                <p class="hp">${pokelist.stats[0].stat.name.toUpperCase()}: ${pokelist.stats[0].base_stat} <p id="barID" style="width:${pokelist.stats[0].base_stat*2}px; height: 10px";> </p> </p>
+                <p class="attack">${pokelist.stats[1].stat.name.toUpperCase()}: ${pokelist.stats[1].base_stat}</p>
+                <p class="defence">${pokelist.stats[2].stat.name.toUpperCase()}: ${pokelist.stats[2].base_stat}</p>
+                <p class="SpAttack">${pokelist.stats[3].stat.name.toUpperCase()}: ${pokelist.stats[3].base_stat}</p>
+                <p class="SpDefence">${pokelist.stats[4].stat.name.toUpperCase()}: ${pokelist.stats[4].base_stat}</p>
+                <p class="speed">${pokelist.stats[5].stat.name.toUpperCase()}: ${pokelist.stats[5].base_stat}</p>
+                </div>
             </div>
     </div>`;
+    // console.log(bar)
     pokedex.innerHTML = htmlpopUP + pokedex.innerHTML;
-    console.log(htmlpopUP)
 }
 const closePopup = () => {
     const popup = document.querySelector('.popup');
     popup.parentElement.removeChild(popup);
 }
+// const bar = document.getElementById("barID");
+// const barWidth = bar.width()
+
+// const createBarColor = () => {
+//     if (bar.width() <= 80){
+//     bar.style.backgroundColor = "red";
+//     console.log(bar)
+//     }
+//     else{
+//         bar.style.backgroundColor = "green"
+//     }
+// }
 
 fetchPokemon()
