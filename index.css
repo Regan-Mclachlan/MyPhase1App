@@ -1,13 +1,16 @@
 body{
-    background-color: red;
+    background-color:orangered;
     margin: 0;
 }
 .pictures{
     list-style: none;
     padding: 20px;
-    background-color: seagreen;
+    background-color: rgb(255, 255, 255);
     color: seashell;
     margin: auto;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
 }
 .pokeImage{
     width: 50px;
@@ -24,7 +27,7 @@ body{
 #pokedex div.popup{
     text-align: center;
     position: fixed;
-    top: 20%;
+    top: 10%;
     left: 30%;
     width: 40%;
     height: 25%;
@@ -37,8 +40,12 @@ body{
 }
 #stats{
     text-align: left;
+    font-weight: bold;
     
 }
-/* #barID{
-    background-color: black;
-} */
+.picturesPop{
+    background-color: rgb(255, 255, 255);
+    border-color: black;
+    border-width: 4px;
+    border-style: solid;
+}

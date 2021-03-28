@@ -19,22 +19,8 @@ const fetchPokemon = () => {
 
     Promise.all(promises).then((results) => {
             const pokemon = results.map((data) => ({
-                // name: data.name,
                 id: data.id,
                 image: data.sprites.front_default,
-                // type: data.types.map( (type) => type.type.name).join(", "),
-                // hp: data.stats[0].stat.name,
-                // attack: data.stats[1].stat.name,
-                // defence: data.stats[2].stat.name,
-                // spAttack: data.stats[3].stat.name,
-                // spDefence: data.stats[4].stat.name,
-                // speed: data.stats[5].stat.name,
-                // hpVal: data.stats[0].base_stat,
-                // attackVal: data.stats[1].base_stat,
-                // defenceVal: data.stats[2].base_stat,
-                // spAttackVal: data.stats[3].base_stat,
-                // spDefenceVal: data.stats[4].base_stat,
-                // speedVal: data.stats[5].base_stat,
             }));
         
            displayPokemon(pokemon);
@@ -65,39 +51,43 @@ const displayPopup = (pokelist) => {
     const htmlpopUP = `
     <div class="popup">
         <button id="closeButton" onclick="closePopup()"> X </button>
-            <div class="pictures">
+            <div class="picturesPop">
                 <img class="pokeImagePop" src="${pokelist.sprites.front_default}"/>
                 <h1> ${pokelist.id}. ${pokelist.name.toUpperCase()}</h1>
                 <p>Type: ${type}</p>
                 <p>Stats</p>
                 <div id="stats">
-                <p class="hp">${pokelist.stats[0].stat.name.toUpperCase()}: ${pokelist.stats[0].base_stat} <p id="barID" style="width:${pokelist.stats[0].base_stat*2}px; height: 10px";> </p> </p>
-                <p class="attack">${pokelist.stats[1].stat.name.toUpperCase()}: ${pokelist.stats[1].base_stat}</p>
-                <p class="defence">${pokelist.stats[2].stat.name.toUpperCase()}: ${pokelist.stats[2].base_stat}</p>
-                <p class="SpAttack">${pokelist.stats[3].stat.name.toUpperCase()}: ${pokelist.stats[3].base_stat}</p>
-                <p class="SpDefence">${pokelist.stats[4].stat.name.toUpperCase()}: ${pokelist.stats[4].base_stat}</p>
-                <p class="speed">${pokelist.stats[5].stat.name.toUpperCase()}: ${pokelist.stats[5].base_stat}</p>
+                <p class="hp">${pokelist.stats[0].stat.name.toUpperCase()}: ${pokelist.stats[0].base_stat} <p class="bar" style="width:${pokelist.stats[0].base_stat*2}px; height: 10px";> </p> </p>
+                <p class="attack">${pokelist.stats[1].stat.name.toUpperCase()}: ${pokelist.stats[1].base_stat}<p class="bar" style="width:${pokelist.stats[1].base_stat*2}px; height: 10px";> </p>
+                <p class="defence">${pokelist.stats[2].stat.name.toUpperCase()}: ${pokelist.stats[2].base_stat}<p class="bar" style="width:${pokelist.stats[2].base_stat*2}px; height: 10px";> </p>
+                <p class="SpAttack">${pokelist.stats[3].stat.name.toUpperCase()}: ${pokelist.stats[3].base_stat}<p class="bar" style="width:${pokelist.stats[3].base_stat*2}px; height: 10px";> </p>
+                <p class="SpDefence">${pokelist.stats[4].stat.name.toUpperCase()}: ${pokelist.stats[4].base_stat}<p class="bar" style="width:${pokelist.stats[4].base_stat*2}px; height: 10px";> </p>
+                <p class="speed">${pokelist.stats[5].stat.name.toUpperCase()}: ${pokelist.stats[5].base_stat}<p class="bar" style="width:${pokelist.stats[5].base_stat*2}px; height: 10px";> </p>
                 </div>
             </div>
     </div>`;
-    // console.log(bar)
     pokedex.innerHTML = htmlpopUP + pokedex.innerHTML;
-}
+    bar = document.getElementsByClassName("bar");
+    for (i = 0; i <= bar.length; i++){
+    barWidth = [parseInt(bar[`${i}`].style.width)]
+        createBarColor()
+        // console.log(barWidth)
+}}
 const closePopup = () => {
     const popup = document.querySelector('.popup');
     popup.parentElement.removeChild(popup);
 }
-// const bar = document.getElementById("barID");
-// const barWidth = bar.width()
+function createBarColor() {
+    if (barWidth <= 80){
+        bar[`${i}`].style.backgroundColor = "red";
+    }
+    else if (barWidth <= 160){
+        bar[`${i}`].style.backgroundColor = "yellow"
+    }
+    else{
+        bar[`${i}`].style.backgroundColor = "rgb(7, 205, 7)"
+    }
+}
 
-// const createBarColor = () => {
-//     if (bar.width() <= 80){
-//     bar.style.backgroundColor = "red";
-//     console.log(bar)
-//     }
-//     else{
-//         bar.style.backgroundColor = "green"
-//     }
-// }
 
 fetchPokemon()
